@@ -11,7 +11,7 @@ bash install.sh
 ```
 
 Menu Options:
-1. **Install Panel** (Installs Node.js, Docker, PM2, dependencies, builds & starts on port 6767)
+1. **Install Panel** (Installs Node.js, Docker, PM2, dependencies, builds & starts on port 1234)
 2. **Update Panel**
 3. **Create Admin User**
 4. **Restart Panel**
