@@ -23,7 +23,7 @@ Menu Options:
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/JishnuTheGamer/Jtg.git
+   git clone https://github.com/NeelAhuja1234/NCPANEL/tree/main
    cd Jtg
    ```
 
