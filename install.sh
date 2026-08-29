@@ -2,7 +2,7 @@
 
 # =========================================================
 # NC Panel - Automated Installation & Management Script
-# Repository: https://github.com/JishnuTheGamer/Jtg
+# Repository: https://github.com/NeelAhuja1234/NCPANEL
 # =========================================================
 
 set -e
@@ -160,7 +160,7 @@ install_panel() {
         WORK_DIR="Nc"
     else
         log_info "Cloning from GitHub..."
-        git clone https://github.com/JishnuTheGamer/Jtg
+        git clone https://github.com/NeelAhuja1234/NCPANEL
         WORK_DIR="Nc"
     fi
     
@@ -173,7 +173,7 @@ install_panel() {
         if [ -f ".env.example" ]; then
             cp .env.example .env
         else
-            echo "PORT=6767" > .env
+            echo "PORT=1234" > .env
             echo "JWT_SECRET=$(head -c 32 /dev/urandom | base64)" >> .env
         fi
     fi
@@ -187,7 +187,7 @@ cat << 'EOF' > ecosystem.config.cjs
 module.exports = {
   apps: [
     {
-      name: "jtg-panel",
+      name: "nc-panel",
       script: "npm",
       args: "start",
       instances: 1,
@@ -196,7 +196,7 @@ module.exports = {
       max_memory_restart: "1G",
       env: {
         NODE_ENV: "production",
-        PORT: process.env.PORT || 6767
+        PORT: process.env.PORT || 1234
       }
     }
   ]
@@ -219,7 +219,7 @@ EOF
     
     log_success "=========================================="
     log_success " Panel successfully installed and started!"
-    log_success " Access URL: http://<YOUR-SERVER-IP>:6767"
+    log_success " Access URL: http://<YOUR-SERVER-IP>:1234"
     log_success "=========================================="
     
     # Return to the main directory
@@ -230,14 +230,14 @@ EOF
 
 update_panel() {
     print_banner
-    echo -e "${BOLD}--- [2] Update JTG Panel ---${NC}\n"
+    echo -e "${BOLD}--- [2] Update NC Panel ---${NC}\n"
     
     if [ -f "package.json" ] && grep -q "react-example" "package.json" 2>/dev/null; then
         WORK_DIR="."
-    elif [ -d "Jtg" ]; then
-        WORK_DIR="Jtg"
+    elif [ -d "Nc" ]; then
+        WORK_DIR="Nc"
     else
-        log_error "'Jtg' directory not found! Please install the panel first (Option 1)."
+        log_error "'Nc' directory not found! Please install the panel first (Option 1)."
         return
     fi
     
